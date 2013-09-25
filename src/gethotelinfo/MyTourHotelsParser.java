@@ -13,7 +13,7 @@ import java.io.IOException;
  * Time: 1:35 PM
  * To change this template use File | Settings | File Templates.
  */
-public class MyTourHotelsParser implements HotelInfoParser {
+public class MyTourHotelsParser implements HotelInfoParser, HrefPagingParser {
 
     private String url;
 
@@ -52,5 +52,11 @@ public class MyTourHotelsParser implements HotelInfoParser {
     @Override
     public String getImageUrl(Element result) {
         return result.getElementsByClass("image_small").first().absUrl("src");
+    }
+
+    @Override
+    public String getNextPageUrl(String e) {
+//        return e.getElementsByClass("image_small").first().absUrl("src");
+        return null;
     }
 }
